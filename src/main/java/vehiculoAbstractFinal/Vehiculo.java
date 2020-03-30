@@ -1,5 +1,6 @@
-package jerarquiaVehiculos;
+package vehiculoAbstractFinal;
 
+import jerarquiaVehiculos.*;
 import java.util.Comparator;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ import java.util.Objects;
 // Esta clase hereda de la clase Object. Todas las clases heredan de Object
 // Clase padre, superclase o clase base
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
     private Long bastidor;
     private String matricula;
@@ -144,4 +145,14 @@ public class Vehiculo {
     public void metodoVehiculo(){
         System.out.println("Método de vehículo");
     }
+}
+
+class ComparadorMatricula implements Comparator<Vehiculo>{
+
+    @Override
+    public int compare(vehiculoAbstractFinal.Vehiculo t, vehiculoAbstractFinal.Vehiculo t1) {
+       
+        return t.getMatricula().compareTo(t1.getMatricula());
+    }
+    
 }

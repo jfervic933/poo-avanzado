@@ -9,7 +9,7 @@ package hospital;
  *
  * @author carlos
  */
-public class Administrativo extends Empleado{
+public class Administrativo extends Empleado implements Natacion{
     
     private String grupo; // A, B
 
@@ -39,5 +39,11 @@ public class Administrativo extends Empleado{
             return this.getSalario()*0.16;
         }
     }
+
+    @Override
+    public void nadar() {
+        // Código X
+    }
+
     
 }

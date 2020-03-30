@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jerarquiaVehiculos;
+package vehiculoAbstractFinal;
+
+import jerarquiaVehiculos.*;
 
 /**
  *
@@ -11,7 +13,11 @@ package jerarquiaVehiculos;
  */
 
 // Clase Turismo es clase hija o subclase (Vehiculo). Especialización
-public class Turismo extends Vehiculo{
+// Una clase final no tiene descendencia
+// Todos sus métodos se vuelven final
+// Si una clase tiene un método final no implica que la clase tenga que ser final
+
+public final class Turismo extends Vehiculo{
     
     // Atributo propio de Turismo, que no existe en vehiculo
     private int numeroPuertas;

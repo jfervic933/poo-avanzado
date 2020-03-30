@@ -5,6 +5,8 @@
  */
 package jerarquiaVehiculos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author carlos
@@ -12,27 +14,45 @@ package jerarquiaVehiculos;
 public class Prueba {
 
     public static void main(String[] args) {
-        Vehiculo v1 = new Vehiculo();
-        Vehiculo v2 = new Vehiculo(2345334543L, "0944 TTF", "Seat", "León", "Rojo", 12.3, true);
-        System.out.println(v1.getAtributos());
-        System.out.println(v2.getAtributos());
-        Turismo t1 = new Turismo();
 
-        Turismo t2 = new Turismo(2, 2345334543L, "0944 TTF", "Seat", "León", "Rojo", 12.3, true);
+        ArrayList<Vehiculo> lista = crearCatalogoVehiculos();
 
-        System.out.println(t1.getAtributos());
-        System.out.println(t2.getAtributos());
-        
-        String frase = "En;un;lugar;de;la;Mancha";
-        String[] palabras = frase.split(";");
-        for (String palabra : palabras) {
-            System.out.println(palabra);
-            if (palabra.equalsIgnoreCase("Mancha")){
-                System.out.println("Existe en el array");
+        for (Vehiculo v : lista) {
+            // Llamada método polimórfico toString()
+            System.out.println(v);
+            System.out.println("");
+            v.metodoVehiculo();
+            System.out.println("");
+            
+            // Conversiones explícitas
+            if (v instanceof Deportivo){
+                ((Deportivo) v).metodoDeportivo();
+            } else if(v instanceof Furgoneta){
+                ((Furgoneta) v).metodoFurgoneta();
+            } else if (v instanceof Turismo){
+                ((Turismo) v).metodoTurismo();
             }
+            System.out.println("--------------------------------");
         }
-
         
+    }
+
+    public static ArrayList<Vehiculo> crearCatalogoVehiculos() {
+
+        ArrayList<Vehiculo> lista = new ArrayList<>();
+
+        lista.add(new Vehiculo());
+        lista.add(new Vehiculo(2345334543L, "0944 TTF", "Seat", "León", "Rojo", 12.3, true));
+        // Conversiones implícitas
+        lista.add(new Turismo());
+        lista.add(new Turismo(3, 1345334543L, "0955 TTF", "Peugeot", "308", "Verde", 2.3, true));
+        lista.add(new Turismo(3, 1345334543L, "0955 TTF", "Peugeot", "308", "Verde", 2.3, true));
+        lista.add(new Deportivo());
+        lista.add(new Deportivo(3, 5545334543L, "2355 DRG", "Ford", "Mustang", "Negro", 1.3, true));
+        lista.add(new Furgoneta());
+        lista.add(new Furgoneta(1200, 12, 4444434543L, "1111 TTF", "Peugeot", "Partner", "Verde", 14.8, true));
+
+        return lista;
     }
 
 }

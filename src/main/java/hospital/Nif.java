@@ -23,6 +23,11 @@ public class Nif {
         this.letra = calcularLetra(numero);
     }
     
+    public Nif(){
+        this.numero = 0l;
+        this.letra = 'a';
+        this.fechaCaducidad = LocalDate.now();
+    }
     private char calcularLetra(long numero){
         char letra = ' ';
         // Cálculo de la letra en función del número

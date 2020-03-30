@@ -19,6 +19,12 @@ public class Empleado extends Persona{
         this.numeroSS = numeroSS;
         this.salario = salario;
     }
+    
+    public Empleado(){
+        super();
+        this.numeroSS = "000023sdd";
+        this.salario = 0.0;
+    }
 
     public String getNumeroSS() {
         return numeroSS;
@@ -38,6 +44,11 @@ public class Empleado extends Persona{
     
     public double calcularIRPF(){
         return salario*0.12;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Empleado{" + "numeroSS=" + numeroSS + ", salario=" + salario + '}';
     }
     
     

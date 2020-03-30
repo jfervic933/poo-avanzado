@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jerarquiaVehiculos;
+package vehiculoAbstractFinal;
+
+import jerarquiaVehiculos.*;
 
 /**
  *
@@ -46,7 +48,13 @@ public class Furgoneta extends Vehiculo {
         return super.toString() + "\n\tFurgoneta{" + "carga=" + carga + ", volumen=" + volumen + '}';
     }   
     
-    public void metodoFurgoneta(){
+    // Un método final implica que si hay descendencia de esta clase
+    // este método no se pueda sobrescribir
+    public final void metodoFurgoneta(){
         System.out.println("Este método es de la clase Furgoneta");
+    }
+    
+    public void metodoX(){
+        System.out.println("");
     }
 }

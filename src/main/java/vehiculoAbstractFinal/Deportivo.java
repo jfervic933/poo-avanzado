@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jerarquiaVehiculos;
+package vehiculoAbstractFinal;
+
+import jerarquiaVehiculos.*;
 
 /**
  *
  * @author carlos
  */
-public class Deportivo extends Vehiculo {
+public final class Deportivo extends Vehiculo {
 
     private int cilindrada; // Atributo específico para Deportivo
 

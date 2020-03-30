@@ -3,37 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hospital;
-
-import java.time.LocalDate;
+package Intefaces_estudiante_profesor;
 
 /**
  *
  * @author jcarlosvico@maralboran.es
  */
-public class Persona {
+
+// Una clase abstracta que implementa una interfaz puede darle código
+// a los métodos abstractos de la interfaz o bien delegar el código a sus
+// subclases
+
+public abstract class Persona implements Identificable {
 
     //Atributos
     private String nombre;
     private String apellidos;
-    private Nif nif;
+    private String nif;
+    private Direccion direccion;
 
-    public void renovarNif(LocalDate fechaSolicitud){
-        // Al renovar el DNI dan 10 años de validez
-        // Añadir 10 años a la fechaSolicitud modificando la fechaCaducidad
-        // del dni de la persona
-    }
-    
-    public Persona(String nombre, String apellidos, Nif nif) {
+    public Persona(String nombre, String apellidos,String nif) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
+        this.direccion = new Direccion();
     }
 
     public Persona(){
         this.nombre="Sin nombre";
         this.apellidos = "Sin apellidos";
-        this.nif = new Nif(22222, LocalDate.now());
+        this.nif = "";
+        this.direccion = new Direccion();
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
     
     public String getNombre() {
@@ -52,19 +60,19 @@ public class Persona {
         this.apellidos = apellidos;
     }
 
-    public Nif getNif() {
+    public String getNif() {
         return nif;
     }
 
-    public void setNif(Nif nif) {
+    public void setNif(String nif) {
         this.nif = nif;
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + '}';
     }
-   
+    
     
 
 }
